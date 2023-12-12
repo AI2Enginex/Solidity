@@ -48,6 +48,13 @@ class StringOperations(MakeConnection):
             return self.contract.functions.countOccurrences(str1,str2).call()
         except Exception as e:
             return e
+        
+    def remove_special_characters(self,val=None):
+
+        try:
+            return self.contract.functions.removeSpecialCharacters(val).call()
+        except Exception as e:
+            return e
                
 
 if __name__ == '__main__':
@@ -62,4 +69,5 @@ if __name__ == '__main__':
     print(stringops.convert_uppercase(str1="helloworld"))
     print(stringops.reverse_string(val="hello world"))
     print(stringops.count_occurance(str1="hello hello world",str2="hello"))
+    print(stringops.remove_special_characters(val="Hello!@@@This is a 123 test."))
     
